@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CardList from "../Components/CardList";
 import SearchBox from "../Components/SearchBox"
 import Scroll from "../Components/Scroll"
+import ErrorBoundary from "../Components/ErrorBoundary"
 import "./App.css";
 
 class App extends Component {
@@ -38,7 +39,9 @@ class App extends Component {
                     </header>
                     <Scroll>
                         <main className="tc">
-                            <CardList robots={filteredRobots}/>            
+                            <ErrorBoundary>
+                                <CardList robots={filteredRobots}/>            
+                            </ErrorBoundary>
                         </main>
                     </Scroll>
                 </React.Fragment>
